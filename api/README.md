@@ -7,7 +7,7 @@ https://medium.com/@programadriano/nesse-artigo-veja-como-criar-uma-api-com-gola
 go run main.go
 ```
 
-End-point
+Endpoints
 
 ```
 GET - http://localhost:3000/
