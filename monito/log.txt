@@ -1,0 +1,8 @@
+20/02/2019 22:51:36 - https://www.alura.com.br - online: true
+20/02/2019 22:51:37 - https://random-status-code.herokuapp.com - online: false
+20/02/2019 22:51:38 - https://www.caelum.com.br - online: true
+20/02/2019 22:51:39 - https://www.casadocodigo.com.br - online: true
+20/02/2019 22:51:44 - https://www.alura.com.br - online: true
+20/02/2019 22:51:46 - https://random-status-code.herokuapp.com - online: false
+20/02/2019 22:51:47 - https://www.caelum.com.br - online: true
+20/02/2019 22:51:49 - https://www.casadocodigo.com.br - online: true
