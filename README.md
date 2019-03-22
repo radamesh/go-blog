@@ -2,6 +2,8 @@
 Starting a study in Go
 
 - go-blog - A basic blog crud understanding how Go works with routes and http and DB.
+- go-api - A basic Api
+- monito - Script that monitoring site status
 
 ## Basic Usage
 
