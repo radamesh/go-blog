@@ -18,18 +18,18 @@ const delay = 5
 
 func main() {
 
-	exibeIntroducao()
+	introduction()
 
 	for {
-		exibeMenu()
-		comando := leComando()
+		showMenu()
+		comando := readCommand()
 
 		switch comando {
 		case 1:
-			iniciarMonitoramento()
+			startMonitoring()
 		case 2:
 			fmt.Println("Exibindo Logs...")
-			imprimeLogs()
+			printingLog()
 		case 0:
 			fmt.Println("Saindo do programa...")
 			os.Exit(0)
@@ -40,20 +40,20 @@ func main() {
 	}
 }
 
-func exibeIntroducao() {
+func introduction() {
 	nome := "Radames"
 	versao := 1.1
 	fmt.Println("Olá, sr.", nome)
 	fmt.Println("Este programa está na versão", versao)
 }
 
-func exibeMenu() {
+func showMenu() {
 	fmt.Println("1- Iniciar Monitoramento")
 	fmt.Println("2- Exibir Logs")
 	fmt.Println("0- Sair do Programa")
 }
 
-func leComando() int {
+func readCommand() int {
 	var comandoLido int
 	fmt.Scan(&comandoLido)
 	fmt.Println("O comando escolhido foi", comandoLido)
@@ -61,11 +61,11 @@ func leComando() int {
 	return comandoLido
 }
 
-func iniciarMonitoramento() {
+func startMonitoring() {
 	fmt.Println("Monitorando...")
 
 	//sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
-	sites := leSiteDoArquivo()
+	sites := readURLsFile()
 
 	for i := 0; i < monitoramentos; i++ {
 		for i, site := range sites {
@@ -88,14 +88,14 @@ func testaSite(site string) {
 
 	if resp.StatusCode == 200 {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
-		registraLog(site, true)
+		registerLog(site, true)
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
-		registraLog(site, false)
+		registerLog(site, false)
 	}
 }
 
-func leSiteDoArquivo() []string {
+func readURLsFile() []string {
 
 	var sites []string
 
@@ -122,7 +122,7 @@ func leSiteDoArquivo() []string {
 	return sites
 }
 
-func registraLog(site string, status bool) {
+func registerLog(site string, status bool) {
 
 	arquivo, err := os.OpenFile("log.txt", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
 
@@ -135,7 +135,7 @@ func registraLog(site string, status bool) {
 	arquivo.Close()
 }
 
-func imprimeLogs() {
+func printingLog() {
 
 	arquivo, err := ioutil.ReadFile("log.txt")
 
